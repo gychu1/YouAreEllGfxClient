@@ -58,12 +58,10 @@ function createFormListener() {
             .then(successCallback, errorCallback);
 
         function successCallback(response) {
-            // This data comes from the resolve method
             addMessageToThread(response);
         }
 
         function errorCallback(response) {
-            // This data comes from the reject method
             console.log(response);
         }
     }
