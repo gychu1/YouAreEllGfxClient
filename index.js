@@ -4,14 +4,13 @@ let userId = "gychu";
 const messageService = new MessageService();
 
 window.addEventListener("load", function () {
-
     document.getElementById("greeting").innerHTML = `Welcome ${userId}!`;
     messageService.getAllMessages()
         .then(successCallback, errorCallback);
 
     function successCallback(response) {
         // This data comes from the resolve method
-        console.log(response);
+        populateMessages(response);
     }
 
     function errorCallback(response) {
@@ -22,8 +21,8 @@ window.addEventListener("load", function () {
 
 function populateMessages(messages) {
     messages.forEach(message => {
-            addMessageToThread(message);
-        })
+        addMessageToThread(message);
+    })
 }
 
 function populateThread(messages) {
@@ -80,3 +79,5 @@ function addMessageToThread(message) {
         .appendChild(messageParagraph);
     document.getElementById("message-list").appendChild(messageListItem);
 }
+
+createFormListener()
